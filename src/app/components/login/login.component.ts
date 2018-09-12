@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from '../../classes/user';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -15,14 +14,14 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public _authService: AuthService,
-    public _router: Router
+    public _router: Router,
+    public zone: NgZone
   ) { }
 
   ngOnInit() {
   }
 
   login() {
-    console.log(this.email, this.password);
     this._authService.loginUser(this.email, this.password)
     .then(res => {
       this._router.navigate(['/home']);
@@ -33,14 +32,14 @@ export class LoginComponent implements OnInit {
   facebookAccount() {
     this._authService.facebookAccount()
     .then(res => {
-      this._router.navigate(['/home']);
+      this.zone.run(() => this._router.navigate(['/home']));
     });
   }
 
   googleAccount() {
     this._authService.googleAccount()
     .then(res => {
-      this._router.navigate(['/home']);
+      this.zone.run(() => this._router.navigate(['/home']));
     });
   }
 }

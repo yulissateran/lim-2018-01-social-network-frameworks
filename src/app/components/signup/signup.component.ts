@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -14,7 +14,8 @@ export class SignupComponent implements OnInit {
 
   constructor(
     public _authService: AuthService,
-    public _router: Router
+    public _router: Router,
+    public zone: NgZone
   ) { }
 
   ngOnInit() {
@@ -30,14 +31,14 @@ export class SignupComponent implements OnInit {
   facebookAccount() {
     this._authService.facebookAccount()
     .then(res => {
-      this._router.navigate(['/home']);
+      this.zone.run(() => this._router.navigate(['/home']));
     });
   }
 
   googleAccount() {
     this._authService.googleAccount()
     .then(res => {
-      this._router.navigate(['/home']);
+      this.zone.run(() => this._router.navigate(['/home']));
     });
   }
 }
