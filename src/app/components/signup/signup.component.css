@@ -1,0 +1,20 @@
+.space-vertical {
+  margin: 50px 0;
+}
+.centered {
+  text-align: center;
+}
+.space-form {
+  margin-top: 20px;
+}
+.button-social {
+  margin: 0 20px;
+}
+.btn-signup {
+  background-color: #0ec5fd;
+  color: #f7f9fa;
+}
+.fully {
+  width: 100%;
+  height: auto;
+}

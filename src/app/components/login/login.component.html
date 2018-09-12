@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-6 container">
+    <img src="../../assets/init.png" alt="init" class="fully">
+  </div>
+  <div class="col-6">
+    <div class="centered">
+      <img src="../../assets/logo.png" alt="logo">
+    </div>
+    <form class="space-form">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Correo Electrónico</label>
+        <input type="email" class="form-control" [(ngModel)]="email" name="email" aria-describedby="emailHelp" placeholder="Ingresa tu correo electrónico" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Contraseña</label>
+        <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Ingresa tu contraseña" required>
+      </div>
+      <div class="centered space-form">
+        <button type="button" class="btn btn-login" (click)="login()">Iniciar Sesión</button>
+      </div>
+      <div class="centered space-form space-vertical">
+        <p>Inicia Sesión con: </p>
+        <img class="button-social" src="../../assets/social-btn/facebook-logo.png" alt="" (click)="facebookAccount()">
+        <img class="button-social" src="../../assets/social-btn/google.png" alt="" (click)="googleAccount()">
+      </div>
+      <div class="centered space-form space-vertical">
+        <p>No tienes una cuenta? <a href="" routerLink="/signup">Regístraste</a></p>
+      </div>
+    </form>
+  </div>
+</div>

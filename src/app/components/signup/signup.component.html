@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-6 container">
+    <img src="../../assets/init.png" alt="init" class="fully">
+  </div>
+  <div class="col-6">
+    <div class="centered">
+      <img src="../../assets/logo.png" alt="logo">
+    </div>
+    <p class="centered">Regístrate para que aprendas nuevas tecnologías</p>
+    <form class="space-form">
+      <div class="centered space-form">
+        <p>Regístrate con: </p>
+        <img class="button-social" src="../../assets/social-btn/facebook-logo.png" alt="" (click)="facebookAccount()">
+        <img class="button-social" src="../../assets/social-btn/google.png" alt="" (click)="googleAccount()">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Nombre</label>
+        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Ingresa tu nombre">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Correo Electrónico</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="email" aria-describedby="emailHelp" placeholder="Ingresa tu correo electrónico">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Contraseña</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Ingresa tu contraseña">
+      </div>
+      <div class="centered">
+        <button type="button" class="btn btn-signup" (click)="signup()">Regístrate</button>
+      </div>
+      <div class="centered space-form space-vertical">
+        <p>Tienes una cuenta? <a href="" routerLink="/login">Inicia Sesión</a></p>
+      </div>
+    </form>
+  </div>
+</div>
