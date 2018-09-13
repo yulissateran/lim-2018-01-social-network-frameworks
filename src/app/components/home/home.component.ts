@@ -10,17 +10,17 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   constructor(
-    public _authService: AuthService,
-    public _router: Router
+    // public _authService: AuthService,
+    // public _router: Router
   ) { }
 
   ngOnInit() {
   }
 
-  logout() {
-    this._authService.logoutUser()
-      .then(() => {
-        this._router.navigate(['/login']);
-      });
-  }
+  // logout() {
+  //   this._authService.logoutUser()
+  //     .then(() => {
+  //       this._router.navigate(['/login']);
+  //     });
+  // }
 }

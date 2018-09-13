@@ -9,7 +9,7 @@ export class RegisterService {
   constructor() { }
 
   writeUserData(user, name) {
-    console.log(user);
+    // console.log(user);
     return new Promise((resolve) => {
       firebase
         .database()
@@ -19,5 +19,29 @@ export class RegisterService {
         });
         resolve(true);
     });
+  }
+
+  // writePostData(postId, description, user) {
+  //   return new Promise((resolve) => {
+  //     firebase
+  //       .database()
+  //       .ref('post/' + postId).set({
+  //         uid,
+  //         description,
+  //         privacity,
+  //         createdAt,
+  //         countLike,
+  //         likes
+  //       });
+  //       resolve(true);
+  //   });
+  // }
+
+  getUser() {
+
+  }
+
+  getPost() {
+
   }
 }
