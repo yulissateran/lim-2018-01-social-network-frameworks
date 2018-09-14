@@ -1,20 +1,34 @@
-.space-vertical {
-  margin: 50px 0;
+.padding-none {
+  padding: 0;
 }
-.centered {
-  text-align: center;
+.margin-none {
+  margin: 0;
 }
-.space-form {
-  margin-top: 20px;
+.height-full {
+  height: 100vh;
 }
-.button-social {
-  margin: 0 20px;
+.main-color {
+  background-color: #f7f9fa;
 }
-.btn-signup {
-  background-color: #0ec5fd;
-  color: #f7f9fa;
-}
-.fully {
+.bakground-input {
+  background-color: #fff;
+  padding: 10px 11px;
   width: 100%;
-  height: auto;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s; 
+  border-radius: 5px;
+}
+
+
+.main-btn   {
+  background-color: #052F5F;
+  color: white;
+  font-size: 16px;
+  width: 60%;
+  padding: 2%;
+  margin: 3% auto;
+}
+strong {
+  font-size: 18px;
+  color: #2b485d;
 }
