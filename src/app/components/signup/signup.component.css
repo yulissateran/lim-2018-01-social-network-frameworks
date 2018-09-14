@@ -1,4 +1,6 @@
-
+.padding-none {
+  padding: 0;
+}
 .margin-none {
   margin: 0;
 }
@@ -26,7 +28,7 @@
   padding: 2%;
   margin: 3% auto;
 }
-label {
+strong {
   font-size: 18px;
   color: #2b485d;
 }

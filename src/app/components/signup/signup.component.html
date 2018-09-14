@@ -9,21 +9,23 @@
         <div class="container">
           <p class="row d-flex justify-content-center">Regístrate para que aprendas nuevas tecnologías</p>
           <p class="row d-flex justify-content-center">Regístrate con: </p>
-          <div class="d-flex justify-content-center">
-            <img class="col-2" src="../../assets/social-btn/facebook-logo.png" alt="" (click)="facebookAccount()">
-            <img class="col-2" src="../../assets/social-btn/google.png" alt="" (click)="googleAccount()">
+          <div class="row d-flex justify-content-center">
+            <label class="col-2"><img class="" src="../../assets/social-btn/facebook-logo.png" alt="" (click)="facebookAccount()"></label>
+            <button class="d-none"></button>          
+            <label class="col-2"><img class="" src="../../assets/social-btn/google.png" alt="" (click)="googleAccount()"></label>
+            <button class="d-none"></button>          
           </div>
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Nombre</label>
+          <label for="exampleInputEmail1"><strong>Nombre</strong></label>
           <input type="text" class="bakground-input" name="name" [(ngModel)]="name" aria-describedby="emailHelp" placeholder="Ingresa tu nombre">
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Correo Electrónico</label>
+          <label for="exampleInputEmail1"><strong>Correo Electrónico</strong></label>
           <input type="email" class="bakground-input" name="email" [(ngModel)]="email" aria-describedby="emailHelp" placeholder="Ingresa tu correo electrónico">
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Contraseña</label>
+          <label for="exampleInputPassword1"><strong>Contraseña</strong></label>
           <input type="password" class="bakground-input" name="password" [(ngModel)]="password" placeholder="Ingresa tu contraseña">
         </div>
         <div class="row">

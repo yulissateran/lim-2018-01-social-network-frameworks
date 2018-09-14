@@ -11,13 +11,19 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AuthService } from './services/auth/auth.service';
+import { HeaderHomeComponent } from './components/header-home/header-home.component';
+import { CreatePostComponent } from './components/create-post/create-post.component';
+import { BodyPostComponent } from './components/body-post/body-post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderHomeComponent,
+    CreatePostComponent,
+    BodyPostComponent
   ],
   imports: [
     BrowserModule,
