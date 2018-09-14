@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegisterService } from '../../services/register/register.service';
 
 @Component({
   selector: 'app-create-post',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatePostComponent implements OnInit {
 
-  constructor() { }
+  public description: string;
+  public privacity: string;
+  public items = ['Público', 'Privado'];
 
-  ngOnInit() {
+  constructor(
+    public _registerSrv: RegisterService
+  ) { }
+
+  ngOnInit() { }
+
+  createPost() {
+    this._registerSrv
+      .writePostData(this.description, this.privacity)
+      .then(() => { });
   }
 
 }

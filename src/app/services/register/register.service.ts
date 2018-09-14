@@ -9,7 +9,6 @@ export class RegisterService {
   constructor() { }
 
   writeUserData(user, name) {
-    // console.log(user);
     return new Promise((resolve) => {
       firebase
         .database()
@@ -21,21 +20,21 @@ export class RegisterService {
     });
   }
 
-  // writePostData(postId, description, user) {
-  //   return new Promise((resolve) => {
-  //     firebase
-  //       .database()
-  //       .ref('post/' + postId).set({
-  //         uid,
-  //         description,
-  //         privacity,
-  //         createdAt,
-  //         countLike,
-  //         likes
-  //       });
-  //       resolve(true);
-  //   });
-  // }
+  writePostData(description, privacity) {
+    return new Promise((resolve) => {
+      firebase
+        .database()
+        .ref('post/').push({
+          // uid,
+          description,
+          privacity,
+          // createdAt,
+          // countLike,
+          // likes
+        });
+        resolve(true);
+    });
+  }
 
   getUser() {
 

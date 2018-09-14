@@ -3,9 +3,18 @@
     <div>
       <textarea name="" id="" cols="50" rows="4" placeholder="¿Qué tienes en mente?"></textarea>
     </div>
-    <div>
-      <!-- select y boton de postear -->
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="d-flex bd-highlight mb-2 align-items-center">
+      <div class="section-logo mr-auto p-2 bd-highlight">
+        <!-- <ng-select [items]="simpleItems" [(ngModel)]="selectedSimpleItem">
+        </ng-select> -->
+        <select class="selectpicker">
+          <option value="public">Público</option>
+          <option value="private">Privado</option>
+        </select>
+      </div>
+      <div>
+        <a href="#" class="btn btn-primary">Publicar</a>
+      </div>
     </div>
   </div>
 </div>
