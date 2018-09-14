@@ -1,30 +1,31 @@
-.btn-login {
-  background-color: #0ec5fd;
-  color: #f7f9fa;
+
+.margin-none {
+  margin: 0;
 }
-.space-form {
-  margin-top: 20px;
+.height-full {
+  height: 100vh;
 }
-.main {
-  display: inline;
+.main-color {
+  background-color: #f7f9fa;
 }
-.fully {
+.bakground-input {
+  background-color: #fff;
+  padding: 15px 11px;
   width: 100%;
-  height: auto;
-}
-.centered {
-  text-align: center;
-}
-.button-social {
-  margin: 0 20px;
-}
-.space-vertical {
-  margin: 50px 0;
-}
-/* .btn-fb {
-  background-color: #3b5998;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s; 
+  border-radius: 5px;
 }
 
-.btn-gg {
-  background-color: #d62d20;
-} */
+.main-btn {
+  background-color: #052F5F;
+  color: white;
+  font-size: 16px;
+  width: 60%;
+  padding: 2%;
+  margin: 5% auto;
+}
+label {
+  font-size: 18px;
+  color: #2b485d;
+}
