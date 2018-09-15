@@ -6,6 +6,9 @@ import * as firebase from 'firebase';
 })
 export class RegisterService {
 
+  public post = {};
+  public updates = {};
+
   constructor() { }
 
   writeUserData(user, name) {
@@ -16,7 +19,7 @@ export class RegisterService {
           username: name,
           email: user.email
         });
-        resolve(true);
+      resolve(true);
     });
   }
 
@@ -24,23 +27,21 @@ export class RegisterService {
     return new Promise((resolve) => {
       firebase
         .database()
-        .ref('post/').push({
-          // uid,
-          description,
-          privacity,
-          // createdAt,
-          // countLike,
-          // likes
+        .ref('posts')
+        .set({
+          description: description,
+          privacity: privacity
         });
-        resolve(true);
+      resolve(true);
     });
   }
-
-  getUser() {
-
-  }
-
-  getPost() {
-
-  }
 }
+
+// getUser() {
+
+// }
+
+// getPost() {
+
+// }
+
