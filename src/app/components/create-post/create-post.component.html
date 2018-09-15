@@ -11,13 +11,9 @@
           <option *ngFor="let font of items.slice(1)" [value]="font">{{font}}
           </option>
         </select>
-        <!-- <select class="selectpicker">
-          <option value="public">Público</option>
-          <option value="private">Privado</option>
-        </select> -->
       </div>
       <div>
-        <button type="button" class="btn btn-primary" (click)="createPost()">Publicar</button>
+        <button type="button" class="btn sky-color" (click)="createPost()">Publicar</button>
       </div>
     </div>
   </div>
