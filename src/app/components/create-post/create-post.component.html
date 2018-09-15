@@ -1,13 +1,13 @@
+
 <div class="card">
-  <div class="card-body">
+  <div class="card-body  px-0 pb-0">
     <div>
       <textarea [(ngModel)]="description" name="" id="" cols="50" rows="4" placeholder="¿Qué tienes en mente?"></textarea>
     </div>
-    <div class="d-flex bd-highlight mb-2 align-items-center">
+    <div class="py-1 col-12 d-flex bd-highlight mb-2 align-items-center border-top">
       <div class="section-logo mr-auto p-2 bd-highlight">
         <select [(ngModel)]="privacity" id="privacitymenu">
-          <option *ngFor="let font of items" [value]="font">{{font}}
-          </option>
+          <option *ngFor="let font of items" [value]="font">{{font}}</option>
         </select>
       </div>
       <div>
