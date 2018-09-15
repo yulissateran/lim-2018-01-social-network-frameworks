@@ -21,8 +21,7 @@ export class CreatePostComponent implements OnInit {
   ngOnInit() {
     // privacidad se esta generando como objeto y dentro estan las letras, realizar pruebas
     this.items = ['Público', 'Privado'];
-    this.defaultPrivacity = this.items[0];
-    this.privacity = Object.assign(this.defaultPrivacity);
+    this.privacity = 'Público';
   }
 
   createPost() {

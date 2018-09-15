@@ -8,6 +8,7 @@ export class RegisterService {
 
   public post = {};
   public updates = {};
+  public date : any;
 
   constructor() { }
 
@@ -24,13 +25,16 @@ export class RegisterService {
   }
 
   writePostData(description, privacity) {
+    this.date = firebase.database.ServerValue.TIMESTAMP;
     return new Promise((resolve) => {
       firebase
         .database()
         .ref('posts')
+        .push()
         .set({
           description: description,
-          privacity: privacity
+          privacity: privacity,
+          date: this.date
         });
       resolve(true);
     });

@@ -6,9 +6,7 @@
     <div class="d-flex bd-highlight mb-2 align-items-center">
       <div class="section-logo mr-auto p-2 bd-highlight">
         <select [(ngModel)]="privacity" id="privacitymenu">
-          <option [value]="defaultPrivacity" selected="selected">{{defaultPrivacity}}
-          </option>
-          <option *ngFor="let font of items.slice(1)" [value]="font">{{font}}
+          <option *ngFor="let font of items" [value]="font">{{font}}
           </option>
         </select>
       </div>
