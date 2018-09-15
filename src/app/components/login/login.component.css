@@ -31,3 +31,6 @@ label {
   font-size: 18px;
   color: #2b485d;
 }
+.providers-btn {
+  cursor: pointer;
+}

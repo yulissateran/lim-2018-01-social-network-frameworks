@@ -15,7 +15,7 @@ export class CreatePostComponent implements OnInit {
   // public brandFont: any;
 
   constructor(
-    public _registerSrv: RegisterService
+    public _registerSrv: RegisterService,
   ) { }
 
   ngOnInit() {
