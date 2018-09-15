@@ -25,6 +25,7 @@ export class RegisterService {
     });
   }
 
+
   writePostData(description, privacity) {
     this.date = firebase.database.ServerValue.TIMESTAMP;
     return new Promise((resolve) => {
