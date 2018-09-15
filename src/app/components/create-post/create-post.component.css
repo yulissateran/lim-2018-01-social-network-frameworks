@@ -6,3 +6,8 @@ textarea {
   font-size: 16px;
   outline: none;
 }
+
+.sky-color {
+  background-color: #2b485d;
+  color: white;
+}

@@ -6,6 +6,10 @@ import * as firebase from 'firebase';
 })
 export class RegisterService {
 
+  public post = {};
+  public updates = {};
+  public date : any;
+
   constructor() { }
 
   writeUserData(user, name) {
@@ -16,31 +20,32 @@ export class RegisterService {
           username: name,
           email: user.email
         });
-        resolve(true);
+      resolve(true);
     });
   }
 
   writePostData(description, privacity) {
+    this.date = firebase.database.ServerValue.TIMESTAMP;
     return new Promise((resolve) => {
       firebase
         .database()
-        .ref('post/').push({
-          // uid,
-          description,
-          privacity,
-          // createdAt,
-          // countLike,
-          // likes
+        .ref('posts')
+        .push()
+        .set({
+          description: description,
+          privacity: privacity,
+          date: this.date
         });
-        resolve(true);
+      resolve(true);
     });
   }
-
-  getUser() {
-
-  }
-
-  getPost() {
-
-  }
 }
+
+// getUser() {
+
+// }
+
+// getPost() {
+
+// }
+
