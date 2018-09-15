@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule} from '@angular/forms';
+import { AuthGuard} from './guards/auth.guard'
+import {SessionGuard } from './guards/session.guard'
 
 import { AppComponent } from './app.component';
 import { appRouting } from './app-routing.module';
@@ -32,7 +34,7 @@ import { BodyPostComponent } from './components/body-post/body-post.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard, SessionGuard],
   bootstrap: [AppComponent]
 })
 // faltaria archivo donde estan metodos de firebase
