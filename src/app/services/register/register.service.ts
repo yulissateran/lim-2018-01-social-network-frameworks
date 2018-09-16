@@ -25,7 +25,7 @@ export class RegisterService {
     });
   }
 
-  writePostData(description, privacity) {
+  writePostData(description, privacity, img) {
     this.date = firebase.database.ServerValue.TIMESTAMP;
     return new Promise((resolve) => {
       const _user = firebase.auth().currentUser;
@@ -38,6 +38,7 @@ export class RegisterService {
           .ref('posts')
           .push()
           .set({
+            img: img,
             description: description,
             privacity: privacity,
             date: this.date,

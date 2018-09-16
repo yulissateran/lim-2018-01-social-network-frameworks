@@ -26,7 +26,7 @@ export class CreatePostComponent implements OnInit {
 
   createPost() {
     this._registerSrv
-      .writePostData(this.description, this.privacity)
+      .writePostData(this.description, this.privacity, this.currentImgSrc)
       .then(() => {
         this.description = '';
       });
