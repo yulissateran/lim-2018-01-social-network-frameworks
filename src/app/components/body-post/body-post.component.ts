@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 import * as firebase from 'firebase';
 @Component({
   selector: 'app-body-post',
@@ -6,13 +6,12 @@ import * as firebase from 'firebase';
   styleUrls: ['./body-post.component.css']
 })
 export class BodyPostComponent implements OnInit {
+  constructor() { }
 
-  constructor( ) { }
-
- Arrayposts: any;
- posts: any;
- public currentUserId :any 
-  ngOnInit() {   
+  Arrayposts: any;
+  posts: any;
+  public currentUserId: any
+  ngOnInit() {
     firebase.database().ref().child('posts').on('value', (snap) => {
       this.currentUserId = firebase.auth().currentUser.uid;
       this.posts = snap.val();
@@ -20,26 +19,24 @@ export class BodyPostComponent implements OnInit {
       console.log(this.posts)
     });
   }
-  addLike(postId){
-    console.log(postId,this.currentUserId)
-  const uid = (firebase.auth().currentUser.uid);
-  let postRef = firebase.database().ref('posts/' + postId);
-  // let like = document.getElementById('like');
-  postRef.transaction((post) => {
-    if (post) {
-      if (post.likes && post.likes[uid]) {
-        post.likesCount--;
-        post.likes[uid] = null;
-      } else {
-        post.likesCount++;
-        if (!post.likes) {
-          post.likes = {};
+
+  addLike(postId) {
+    console.log(postId, this.currentUserId)
+    const uid = (firebase.auth().currentUser.uid);
+    let postRef = firebase.database().ref('posts/' + postId);
+    postRef.transaction((post) => {
+      if (post) {
+        if (post.likes && post.likes[uid]) {
+          post.likesCount--;
+          post.likes[uid] = null;
+          return true;
+        } else {
+          post.likesCount++;
+          if (!post.likes) post.likes = {};
+          post.likes[uid] = true;
+          return false;
         }
-        post.likes[uid] = true;
       }
-    }
-    return post;
-  });
-  // like.classList.add('colornotlike');
+    });
   }
 }
