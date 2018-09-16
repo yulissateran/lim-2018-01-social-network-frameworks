@@ -12,14 +12,12 @@ export class CreatePostComponent implements OnInit {
   public privacity: string;
   public items = [];
   public defaultPrivacity: any;
-  // public brandFont: any;
 
   constructor(
     public _registerSrv: RegisterService,
   ) { }
 
   ngOnInit() {
-    // privacidad se esta generando como objeto y dentro estan las letras, realizar pruebas
     this.items = ['Público', 'Privado'];
     this.privacity = 'Público';
   }

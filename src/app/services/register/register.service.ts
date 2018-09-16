@@ -25,12 +25,14 @@ export class RegisterService {
     });
   }
 
-
   writePostData(description, privacity) {
     this.date = firebase.database.ServerValue.TIMESTAMP;
     return new Promise((resolve) => {
       const _user = firebase.auth().currentUser;
-      firebase.database().ref('/users/' + _user.uid).once('value', (snapshot) => {
+      firebase
+      .database()
+      .ref('/users/' + _user.uid)
+      .once('value', (snapshot) => {
         firebase
           .database()
           .ref('posts')
@@ -49,12 +51,3 @@ export class RegisterService {
     });
   }
 }
-
-// getUser() {
-
-// }
-
-// getPost() {
-
-// }
-
