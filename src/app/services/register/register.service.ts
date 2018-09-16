@@ -42,7 +42,7 @@ export class RegisterService {
             authorName: snapshot.val().username,
             authorPhoto: snapshot.val().photo || 'no hay',
             authorId: _user.uid,
-            likes: 0
+            likesCount: 0
          });
         resolve(true);
       })

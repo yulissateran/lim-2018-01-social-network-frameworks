@@ -1,6 +1,5 @@
 <!-- para publico -->
-<div class="card  px-0 shadow-sm  mb-5 bg-white rounded spaces-vertical">
-  <!-- <div class="card-body"></div> -->
+<!-- <div class="card  px-0 shadow-sm  mb-5 bg-white rounded spaces-vertical">
   <h5 class="p-3  card-title">Anaflavia Díaz</h5>
   <div class="card-body px-3">Aquí hay texto</div>
   <div class="border-top r text-muted py-2">
@@ -9,20 +8,20 @@
     </button>
     <span>0</span>
   </div>
-</div>
+</div> -->
 
 <!-- personal -->
-<div class="card  px-0 shadow-sm  mb-5 bg-white rounded spaces-vertical">
-  <h5 class="p-3  card-title">Yulissa Terán</h5>
-  <div class="card-body px-3">Aquí hay otro texto</div>
+<div *ngFor="let post of Arrayposts" class="card  px-0 shadow-sm  mb-5 bg-white rounded spaces-vertical">
+  <h5 class="p-3  card-title">{{posts[post].authorName}}</h5>
+  <div class="card-body px-3">{{posts[post].description}}</div>
   <div class="border-top r text-muted py-2 d-flex justify-content-between">
     <div>
       <button type="button" class="btn btn-default spaces-horizontal">
         <span class="glyphicon glyphicon-star" aria-hidden="true">Like</span>
       </button>
-      <span>0</span>
+      <span>{{posts[post].likesCount}}</span>
     </div>
-    <div>
+    <div *ngIf="firebase.auth().currentUser.uid === posts[post].authorId">
       <button type="button" class="btn btn-default spaces-horizontal">
         <span class="glyphicon glyphicon-star" aria-hidden="true">Editar</span>
       </button>
