@@ -26,27 +26,14 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    const validEmailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (this.password === undefined || this.password.length < 6) {
-      this.invalidPass = true;
-      this.wrongForm = true
-      this.messageWrong = 'contraseña no valida';
-    } else this.invalidPass = false;
-    if (!validEmailRegEx.test(this.email)) {
-      this.invalidEmail = true;
-      this.wrongForm = true
-      this.messageWrong = 'email no valido';
-    } else this.invalidEmail = false;
-    if (this.invalidEmail === false && this.invalidPass === false) {
-      this._authService.loginUser(this.email, this.password)
-        .then(res => {
-          this._router.navigate(['/home']);
-        })
-        .catch(error => {
-          this.wrongForm = true;
-          this.messageWrong = 'contraseña no valida';
-        });
-    }
+    this._authService.loginUser(this.email, this.password)
+      .then(res => {
+        this._router.navigate(['/home']);
+      })
+      .catch(error => {
+        this.wrongForm = true;
+        this.messageWrong = 'Contraseña no válida';
+      });
   }
 
   facebookAccount() {
@@ -61,5 +48,22 @@ export class LoginComponent implements OnInit {
       .then(res => {
         this.zone.run(() => this._router.navigate(['/home']));
       });
+  }
+
+  validateForm() {
+    const validEmailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (this.password === undefined || this.password.length < 6) {
+      this.invalidPass = true;
+      this.wrongForm = true
+      this.messageWrong = 'Contraseña no válida';
+    } else this.invalidPass = false;
+    if (!validEmailRegEx.test(this.email)) {
+      this.invalidEmail = true;
+      this.wrongForm = true
+      this.messageWrong = 'Email no válido';
+    } else this.invalidEmail = false;
+    if (this.invalidEmail === false && this.invalidPass === false) {
+      this.login();
+    }
   }
 }

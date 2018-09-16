@@ -31,8 +31,11 @@
           <label for="exampleInputPassword1"><strong>Contraseña</strong></label>
           <input type="password" class="bakground-input" name="password" [(ngModel)]="password" placeholder="Ingresa tu contraseña">
         </div>
+        <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" *ngIf="wrongForm === true">
+          {{messageWrong}}
+        </div>
         <div class="row">
-          <button type="button" class="btn mx-auto main-btn" (click)="signup()">Regístrate</button>
+          <button type="button" class="btn mx-auto main-btn" (click)="validateForm()">Regístrate</button>
         </div>
         <div class="row">
           <p class="mx-auto ">Tienes una cuenta? <a href="" routerLink="/login">Inicia Sesión</a></p>

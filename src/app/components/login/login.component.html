@@ -16,13 +16,13 @@
             <div class="form-group">
               <label for="exampleInputPassword1" class="mx-auto"><strong>Contraseña</strong></label>
               <input type="password" class="mx-auto bakground-input" [(ngModel)]="password" name="password" placeholder="Ingresa tu contraseña"
-							minlength="6" required>
+                minlength="6" required>
             </div>
             <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" *ngIf="wrongForm === true">
               {{messageWrong}}
             </div>
             <div class="row ">
-              <button type="button" class="btn mx-auto main-btn" (click)="login()">Iniciar Sesión</button>
+              <button type="button" class="btn mx-auto main-btn" (click)="validateForm()">Iniciar Sesión</button>
             </div>
           </form>
           <div class="container">
