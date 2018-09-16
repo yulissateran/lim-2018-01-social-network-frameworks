@@ -21,7 +21,7 @@
       </button>
       <span>{{posts[post].likesCount}}</span>
     </div>
-    <div *ngIf="firebase.auth().currentUser.uid === posts[post].authorId">
+    <div *ngIf="currentUserId === posts[post].authorId">
       <button type="button" class="btn btn-default spaces-horizontal">
         <span class="glyphicon glyphicon-star" aria-hidden="true">Editar</span>
       </button>

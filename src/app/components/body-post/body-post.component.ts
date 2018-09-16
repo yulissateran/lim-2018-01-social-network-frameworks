@@ -9,13 +9,14 @@ export class BodyPostComponent implements OnInit {
 
   constructor( 
   ) { }
- public firebase = firebase;
+
  Arrayposts: any;
  posts: any;
-     
+ public currentUserId :any 
   ngOnInit() {
+    
     firebase.database().ref().child('posts').on('value', (snap) => {
-      const currentUserId = firebase.auth().currentUser.uid;
+      this.currentUserId = firebase.auth().currentUser.uid;
       this.posts = snap.val();
       this.Arrayposts = Object.keys(snap.val());
       console.log(this.posts)
