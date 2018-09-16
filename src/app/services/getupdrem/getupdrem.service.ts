@@ -9,7 +9,7 @@ export class GetupdremService {
   constructor() { }
 
   getPost() {
-    return new Promise((resolve, rejec) => {
+    return new Promise((resolve, reject) => {
       firebase
         .database()
         .ref()
@@ -30,6 +30,21 @@ export class GetupdremService {
         .update(updates, (error) => {
           if (error) reject(error);
           else resolve('ok');
+        });
+    });
+  }
+
+  updatePost(id, text) {
+    return new Promise((resolve, reject) => {
+      let updates = {};
+      updates['posts/'+id+'/description'] = text;
+      firebase
+        .database()
+        .ref()
+        .update(updates, (error) => {
+          if(error) {
+            reject(error);
+          } else resolve('ok');
         });
     });
   }

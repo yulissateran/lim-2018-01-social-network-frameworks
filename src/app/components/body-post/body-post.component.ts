@@ -13,6 +13,9 @@ export class BodyPostComponent implements OnInit {
     public _getUpdRemSrv: GetupdremService
   ) { }
   public firebase = firebase;
+  public canEdit: boolean = false;
+  public textEdit: string;
+  public actualPost: string;
   Arrayposts: any;
   posts: any;
 
@@ -69,6 +72,22 @@ export class BodyPostComponent implements OnInit {
       }
       return post;
     });
+
+  editPost(idPost) {
+    this.actualPost = idPost;
+    this.canEdit = true;
+    this.textEdit = this.posts[idPost]['description'];
+  }
+
+  cancelEditPost() {
+    this.canEdit = false;
+  }
+
+  saveEditPost(idPost) {
+    this._getUpdRemSrv.updatePost(idPost, this.textEdit)
+      .then(() => {
+        this.canEdit = false;
+      });
   }
 
 }
