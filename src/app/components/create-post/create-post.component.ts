@@ -12,6 +12,8 @@ export class CreatePostComponent implements OnInit {
   public privacity: string;
   public items = [];
   public defaultPrivacity: any;
+  public currentImg: FileList;
+  public currentImgSrc: any;
 
   constructor(
     public _registerSrv: RegisterService
@@ -29,5 +31,10 @@ export class CreatePostComponent implements OnInit {
         this.description = '';
       });
   }
-
+  addImg(event){
+    this.currentImg = event.target.files;
+    const reader  = new FileReader(); 
+    reader.onloadend = ()=> this.currentImgSrc= reader.result;
+    reader.readAsDataURL(this.currentImg[0]);
+  }
 }

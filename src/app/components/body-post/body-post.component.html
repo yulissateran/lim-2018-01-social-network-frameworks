@@ -1,6 +1,5 @@
 <div *ngFor="let post of Arrayposts" >
     <div *ngIf="posts[post].privacity === 'Publico' || firebase.auth().currentUser.uid === posts[post].authorId"  class="card  px-0 shadow-sm  mb-5 bg-white rounded spaces-vertical">
-        <!-- <div > -->
             <h5 class="p-3 card-title">{{posts[post].authorName}}</h5>
             <div class="card-body px-3" *ngIf="canEdit === false || actualPost !== post">{{posts[post].description}}</div>
             <div class="card-body px-3" *ngIf="canEdit === true && actualPost === post">
@@ -28,7 +27,6 @@
                 </button>
               </div>
             </div>
-        <!-- </div> -->
       </div>
       
 </div>

@@ -3,6 +3,7 @@
   <div class="card-body  px-0 pb-0">
     <div>
       <textarea [(ngModel)]="description" name="" id="" cols="50" rows="4" placeholder="¿Qué tienes en mente?"></textarea>
+       <img *ngIf="currentImg" src="{{currentImgSrc}}" height="150px" width="180px" >
     </div>
     <div class="py-1 col-12 d-flex bd-highlight mb-2 align-items-center border-top">
       <div class="section-logo mr-auto p-2 bd-highlight">
@@ -11,6 +12,8 @@
         </select>
       </div>
       <div>
+        <label for="photo"><img src="../../../assets/photo.png"></label>
+        <input id="photo" type="file" class="d-none" (change)="addImg($event)">
         <button type="button" class="btn sky-color" (click)="createPost()">Publicar</button>
       </div>
     </div>
