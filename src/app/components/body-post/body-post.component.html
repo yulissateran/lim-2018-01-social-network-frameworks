@@ -1,16 +1,3 @@
-<!-- para publico -->
-<!-- <div class="card  px-0 shadow-sm  mb-5 bg-white rounded spaces-vertical">
-  <h5 class="p-3  card-title">Anaflavia Díaz</h5>
-  <div class="card-body px-3">Aquí hay texto</div>
-  <div class="border-top r text-muted py-2">
-    <button type="button" class="btn btn-default spaces-horizontal">
-      <span class="glyphicon glyphicon-star" aria-hidden="true">Like</span>
-    </button>
-    <span>0</span>
-  </div>
-</div> -->
-
-<!-- personal -->
 <div *ngFor="let post of Arrayposts" class="card  px-0 shadow-sm  mb-5 bg-white rounded spaces-vertical">
   <h5 class="p-3  card-title">{{posts[post].authorName}}</h5>
   <div class="card-body px-3">{{posts[post].description}}</div>
@@ -29,7 +16,8 @@
         <span class="glyphicon glyphicon-star" aria-hidden="true">Editar</span>
       </button>
       <button type="button" class="btn btn-default spaces-horizontal">
-        <span class="glyphicon glyphicon-star" aria-hidden="true">Eliminar</span>
+        <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="removePost()">Eliminar</span>
       </button>
     </div>
   </div>
+</div>
