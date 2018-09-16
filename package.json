@@ -21,10 +21,13 @@
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
     "@ng-select/ng-select": "^2.9.0",
+    "@toverux/ngx-sweetalert2": "^4.0.0",
+    "angular-sweetalert": "^1.1.2",
     "angularfire2": "^5.0.1",
     "core-js": "^2.5.4",
     "firebase": "^5.4.2",
     "rxjs": "^6.0.0",
+    "sweetalert2": "^7.26.29",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

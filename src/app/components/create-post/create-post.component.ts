@@ -14,7 +14,7 @@ export class CreatePostComponent implements OnInit {
   public defaultPrivacity: any;
 
   constructor(
-    public _registerSrv: RegisterService,
+    public _registerSrv: RegisterService
   ) { }
 
   ngOnInit() {
@@ -26,7 +26,7 @@ export class CreatePostComponent implements OnInit {
     this._registerSrv
       .writePostData(this.description, this.privacity)
       .then(() => {
-        console.log('ya');
+        this.description = '';
       });
   }
 
