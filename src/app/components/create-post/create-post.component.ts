@@ -18,8 +18,8 @@ export class CreatePostComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.items = ['Público', 'Privado'];
-    this.privacity = 'Público';
+    this.items = ['Publico', 'Privado'];
+    this.privacity = 'Publico';
   }
 
   createPost() {
