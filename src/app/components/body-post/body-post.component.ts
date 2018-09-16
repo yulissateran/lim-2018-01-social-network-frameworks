@@ -8,7 +8,7 @@ import swal from 'sweetalert2';
   styleUrls: ['./body-post.component.css']
 })
 export class BodyPostComponent implements OnInit {
- 
+
   constructor(
     public _getUpdRemSrv: GetupdremService
   ) { }
@@ -72,6 +72,7 @@ export class BodyPostComponent implements OnInit {
       }
       return post;
     });
+  }
 
   editPost(idPost) {
     this.actualPost = idPost;

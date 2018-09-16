@@ -13,14 +13,11 @@
   <div class="border-top r text-muted py-2 d-flex justify-content-between">
     <div>
       <button type="button" class="btn  spaces-horizontal" id="post" (click)="addLike(post)">
-        <span class="glyphicon glyphicon-star" aria-hidden="true" >Like</span>
+        <span class="glyphicon glyphicon-star" aria-hidden="true">Like</span>
       </button>
-      <!-- <button *ngIf="!posts[post].likes || !posts[post].likes[currentUserId]" type="button" class="btn btn-default spaces-horizontal">
-          <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="addLike(post)">Like</span>
-        </button> -->
       <span>{{posts[post].likesCount}}</span>
     </div>
-    <div *ngIf="currentUserId === posts[post].authorId">
+    <div *ngIf="firebase.auth().currentUser.uid === posts[post].authorId">
       <button type="button" class="btn btn-default spaces-horizontal">
         <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="editPost(post)">Editar</span>
       </button>
