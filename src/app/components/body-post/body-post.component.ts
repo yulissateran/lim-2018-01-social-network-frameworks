@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 import * as firebase from 'firebase';
 import { GetupdremService } from '../../services/getupdrem/getupdrem.service';
 import swal from 'sweetalert2';
@@ -8,7 +8,7 @@ import swal from 'sweetalert2';
   styleUrls: ['./body-post.component.css']
 })
 export class BodyPostComponent implements OnInit {
-
+ 
   constructor(
     public _getUpdRemSrv: GetupdremService
   ) { }
@@ -55,6 +55,23 @@ export class BodyPostComponent implements OnInit {
       else console.log(result);
     });
   }
+
+  addLike(postId) {
+    const uid = (firebase.auth().currentUser.uid);
+    let postRef = firebase.database().ref('posts/' + postId);
+    postRef.transaction((post) => {
+      if (post) {
+        if (post.likes && post.likes[uid]) {
+          post.likesCount--;
+          post.likes[uid] = null;
+        } else {
+          post.likesCount++;
+          if (!post.likes) post.likes = {};
+          post.likes[uid] = true;
+        }
+      }
+      return post;
+    });
 
   editPost(idPost) {
     this.actualPost = idPost;
