@@ -20,6 +20,18 @@ export class GetupdremService {
     });
   }
 
+  getUser() {
+    return new Promise((resolve, reject) => {
+      firebase
+        .database()
+        .ref()
+        .child('users')
+        .on('value', (snap) => {
+          resolve(snap.val());
+        });
+    });
+  }
+
   deletePost(id) {
     return new Promise((resolve, reject) => {
       let updates = {};

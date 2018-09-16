@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { RegisterService } from '../../services/register/register.service';
+import { GetupdremService } from '../../services/getupdrem/getupdrem.service';
 
 @Component({
   selector: 'app-signup',
@@ -23,10 +24,15 @@ export class SignupComponent implements OnInit {
     public _authSrv: AuthService,
     public _router: Router,
     public zone: NgZone,
-    public _registerService: RegisterService
+    public _registerService: RegisterService,
+    public _getUpdRem: GetupdremService
   ) { }
 
   ngOnInit() {
+  }
+
+  pruebitas() {
+    this._getUpdRem.getUser().then(user => Object["values"](user).map((x) => console.log(x.email)));
   }
 
   signup() {
