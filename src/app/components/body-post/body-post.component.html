@@ -1,8 +1,8 @@
 <div *ngFor="let post of Arrayposts" class="card  px-0 shadow-sm  mb-5 bg-white rounded spaces-vertical">
   <h5 class="p-3 card-title">{{posts[post].authorName}}</h5>
-  <div class="card-body px-3" *ngIf="canEdit === false">{{posts[post].description}}</div>
+  <div class="card-body px-3" *ngIf="canEdit === false || actualPost !== post">{{posts[post].description}}</div>
   <div class="card-body px-3" *ngIf="canEdit === true && actualPost === post">
-    <textarea cols="50" rows="4" [(ngModel)]="textEdit">{{posts[post].description}}</textarea>
+    <textarea cols="50" rows="4" [(ngModel)]="textEdit"></textarea>
     <button type="button" class="btn btn-default spaces-horizontal">
       <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="saveEditPost(post)">Guardar</span>
     </button>
@@ -18,10 +18,10 @@
       <span>{{posts[post].likesCount}}</span>
     </div>
     <div *ngIf="firebase.auth().currentUser.uid === posts[post].authorId">
-      <button type="button" class="btn btn-default spaces-horizontal">
+      <button type="button" class="btn btn-default spaces-horizontal" *ngIf="canEdit === false || actualPost !== post">
         <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="editPost(post)">Editar</span>
       </button>
-      <button type="button" class="btn btn-default spaces-horizontal">
+      <button type="button" class="btn btn-default spaces-horizontal" *ngIf="canEdit === false || actualPost !== post">
         <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="removePost(post)">Eliminar</span>
       </button>
     </div>
