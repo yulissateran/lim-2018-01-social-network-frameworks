@@ -29,7 +29,7 @@ export class BodyPostComponent implements OnInit {
         this.posts = snap.val();
         this.Arrayposts = Object.keys(snap.val());
         // console.log(this.posts[post].privacity === Publico || firebase.auth().currentUser.uid === posts[post].authorId)
-           });
+      });
   }
 
   removePost(idPost) {

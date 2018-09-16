@@ -1,45 +1,46 @@
 <div class="row">
-    <img src="../../assets/init.png" alt="init" class="col-6 d-none d-md-block padding-none height-full">
-    <div class="col-12 col-md-6  padding-none  height-full main-color">
-        <div class="container">
-            <div class="row">
-                <div class="col-10 mx-auto height-full">
-                    <div class="row  my-5">
-                        <img src="../../assets/logo.png" alt="logo" class="mx-auto">
-                    </div>
-                    <form class="container">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1" class="mx-auto "><strong>Correo Electrónico</strong></label>
-                            <input type="email" class="mx-auto bakground-input" [(ngModel)]="email" name="email" aria-describedby="emailHelp" placeholder="Ingresa tu correo electrónico"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1" class="mx-auto"><strong>Contraseña</strong></label>
-                            <input type="password" class="mx-auto bakground-input" [(ngModel)]="password" name="password" placeholder="Ingresa tu contraseña"
-                                required>
-                        </div>
-                        <div class="row ">
-                            <button type="button" class="btn mx-auto main-btn" (click)="login()">Iniciar Sesión</button>
-                        </div>
-                    </form>
-                    <div class="container">
-                        <p class="row d-flex justify-content-center">Inicia Sesión con: </p>
-                        <div class="row  d-flex justify-content-center">
-                            <label for="btn-facebook" class="col-2"><img class="providers-btn" src="../../assets/social-btn/facebook-logo.png"
-                                    alt=""></label>
-                            <button id="btn-facebook" class="d-none" (click)="facebookAccount()"></button>
-                            <label for="btn-google" class="col-2"><img class="providers-btn" src="../../assets/social-btn/google.png"
-                                    alt=""></label>
-                            <button id="btn-google" class=" d-none" (click)="googleAccount()"></button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <p class="mx-auto">No tienes una cuenta?  <a href="" routerLink="/signup">Regístraste</a></p>
-                    </div>
-                </div>
+  <img src="../../assets/init.png" alt="init" class="col-6 d-none d-md-block padding-none height-full">
+  <div class="col-12 col-md-6  padding-none  height-full main-color">
+    <div class="container">
+      <div class="row">
+        <div class="col-10 mx-auto height-full">
+          <div class="row  my-5">
+            <img src="../../assets/logo.png" alt="logo" class="mx-auto">
+          </div>
+          <form class="container">
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="mx-auto "><strong>Correo Electrónico</strong></label>
+              <input type="email" class="mx-auto bakground-input" [(ngModel)]="email" name="email" aria-describedby="emailHelp"
+                placeholder="Ingresa tu correo electrónico" required>
             </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1" class="mx-auto"><strong>Contraseña</strong></label>
+              <input type="password" class="mx-auto bakground-input" [(ngModel)]="password" name="password" placeholder="Ingresa tu contraseña"
+                minlength="6" required>
+            </div>
+            <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" *ngIf="wrongForm === true">
+              {{messageWrong}}
+            </div>
+            <div class="row ">
+              <button type="button" class="btn mx-auto main-btn" (click)="validateForm()">Iniciar Sesión</button>
+            </div>
+          </form>
+          <div class="container">
+            <p class="row d-flex justify-content-center">Inicia Sesión con: </p>
+            <div class="row  d-flex justify-content-center">
+              <label for="btn-facebook" class="col-2"><img class="providers-btn" src="../../assets/social-btn/facebook-logo.png"
+                  alt=""></label>
+              <button id="btn-facebook" class="d-none" (click)="facebookAccount()"></button>
+              <label for="btn-google" class="col-2"><img class="providers-btn" src="../../assets/social-btn/google.png"
+                  alt=""></label>
+              <button id="btn-google" class=" d-none" (click)="googleAccount()"></button>
+            </div>
+          </div>
+          <div class="row">
+            <p class="mx-auto">No tienes una cuenta? <a href="" routerLink="/signup">Regístraste</a></p>
+          </div>
         </div>
+      </div>
     </div>
-
-
+  </div>
 </div>
