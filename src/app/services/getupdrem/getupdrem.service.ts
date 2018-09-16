@@ -19,4 +19,18 @@ export class GetupdremService {
         });
     });
   }
+
+  deletePost(id) {
+    return new Promise((resolve, reject) => {
+      let updates = {};
+      updates['posts/' + id] = null;
+      firebase
+        .database()
+        .ref()
+        .update(updates, (error) => {
+          if (error) reject(error);
+          else resolve('ok');
+        });
+    });
+  }
 }
