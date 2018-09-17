@@ -32,8 +32,9 @@ export class CreatePostComponent implements OnInit {
           this.description = '';
           this.currentImgSrc = null;
         });
+    } else {
+      console.log('noescribiste nada');
     }
-    else console.log('noescribiste nada')
   }
 
   addImg(event) {

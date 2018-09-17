@@ -34,29 +34,28 @@ export class GetupdremService {
 
   deletePost(id) {
     return new Promise((resolve, reject) => {
-      let updates = {};
+      const updates = {};
       updates['posts/' + id] = null;
       firebase
         .database()
         .ref()
         .update(updates, (error) => {
-          if (error) reject(error);
-          else resolve('ok');
+          if (error) { reject(error); } else { resolve('ok'); }
         });
     });
   }
 
   updatePost(id, text) {
     return new Promise((resolve, reject) => {
-      let updates = {};
-      updates['posts/'+id+'/description'] = text;
+      const updates = {};
+      updates['posts/' + id + '/description'] = text;
       firebase
         .database()
         .ref()
         .update(updates, (error) => {
-          if(error) {
+          if (error) {
             reject(error);
-          } else resolve('ok');
+          } else { resolve('ok'); }
         });
     });
   }

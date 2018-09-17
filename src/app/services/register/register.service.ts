@@ -8,7 +8,7 @@ export class RegisterService {
 
   public post = {};
   public updates = {};
-  public date : any;
+  public date: any;
 
   constructor() { }
 
@@ -19,7 +19,8 @@ export class RegisterService {
         .ref('users/' + user.uid).set({
           username: name,
           email: user.email,
-          photo: user.photoURL ||'https://previews.123rf.com/images/kannaa123rf/kannaa123rf1609/kannaa123rf160900065/66702728-cara-de-ni%C3%B1a-cabeza-de-perfil-avatar-femenina-ilustraci%C3%B3n-del-vector-para-el-dise%C3%B1o-de-la-belleza-icono-plana.jpg'
+          // tslint:disable-next-line:max-line-length
+          photo: user.photoURL || 'https://previews.123rf.com/images/kannaa123rf/kannaa123rf1609/kannaa123rf160900065/66702728-cara-de-ni%C3%B1a-cabeza-de-perfil-avatar-femenina-ilustraci%C3%B3n-del-vector-para-el-dise%C3%B1o-de-la-belleza-icono-plana.jpg'
         });
       resolve(true);
     });
@@ -48,7 +49,7 @@ export class RegisterService {
             likesCount: 0
          });
         resolve(true);
-      })
+      });
     });
   }
 }

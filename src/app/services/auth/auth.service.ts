@@ -18,13 +18,13 @@ export class AuthService {
   stateSession(): any {
     return new Promise((resolve, reject) => {
       this._afAuth.authState.subscribe((auth) => {
-        if (!auth) reject(auth);
+        if (!auth) { reject(auth); }
         resolve(auth);
       });
-    })
+    });
   }
 
-  redirectUrl: string;
+  // redirectUrl: string;
 
   signupUser(email: string, pass: string) {
     // tslint:disable-next-line:no-shadowed-variable

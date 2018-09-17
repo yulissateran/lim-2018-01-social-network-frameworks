@@ -13,7 +13,7 @@ export class BodyPostComponent implements OnInit {
     public _getUpdRemSrv: GetupdremService
   ) { }
   public firebase = firebase;
-  public canEdit: boolean = false;
+  public canEdit = false;
   public textEdit: string;
   public actualPost: string;
   public currentUserId: any;
@@ -28,7 +28,7 @@ export class BodyPostComponent implements OnInit {
       .on('value', (snap) => {
         this.currentUserId = firebase.auth().currentUser.uid;
         this.posts = snap.val();
-        this.Arrayposts = Object.keys(snap.val());
+        this.Arrayposts = Object.keys(snap.val()).reverse();
         // console.log(this.posts[post].privacity === Publico || firebase.auth().currentUser.uid === posts[post].authorId)
       });
   }
@@ -52,14 +52,15 @@ export class BodyPostComponent implements OnInit {
               text: 'Tu post ha sido eliminado'
             });
           });
+      } else {
+        console.log(result);
       }
-      else console.log(result);
     });
   }
 
   addLike(postId) {
     const uid = (firebase.auth().currentUser.uid);
-    let postRef = firebase.database().ref('posts/' + postId);
+    const postRef = firebase.database().ref('posts/' + postId);
     postRef.transaction((post) => {
       if (post) {
         if (post.likes && post.likes[uid]) {
@@ -67,7 +68,9 @@ export class BodyPostComponent implements OnInit {
           post.likes[uid] = null;
         } else {
           post.likesCount++;
-          if (!post.likes) post.likes = {};
+          if (!post.likes) {
+            post.likes = {};
+          }
           post.likes[uid] = true;
         }
       }
