@@ -19,6 +19,7 @@ export class SignupComponent implements OnInit {
   public validName: boolean;
   public wrongForm: boolean;
   public messageWrong: string;
+  public userInDB: boolean;
 
   constructor(
     public _authSrv: AuthService,
@@ -31,13 +32,9 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  pruebitas() {
-    this._getUpdRem.getUser().then(user => Object["values"](user).map((x) => console.log(x.email)));
-  }
-
   signup() {
     this._authSrv.signupUser(this.email, this.password)
-      .then((res: { user: { } }) => {
+      .then((res: { user: {} }) => {
         this._registerService
           .writeUserData(res.user, this.name).then(() => this._router.navigate(['/home']));
       })
@@ -50,14 +47,49 @@ export class SignupComponent implements OnInit {
   facebookAccount() {
     this._authSrv.facebookAccount()
       .then(res => {
-        this.zone.run(() => this._router.navigate(['/home']));
+        const emailUserSesion = res.user.email;
+        this._getUpdRem.getUser()
+          .then(user => {
+            const lengthUsers = (Object["values"](user).length) - 1;
+            Object["values"](user).map((x, i) => {
+              if (x.email === emailUserSesion) {
+                this.userInDB = true;
+              }
+              if (i === lengthUsers && this.userInDB) {
+                this.zone.run(() => this._router.navigate(['/home']));
+              }
+              else if (i === lengthUsers && !this.userInDB) {
+                this._registerService
+                  .writeUserData(res.user, res.user.displayName)
+                  .then(() => this.zone.run(() => this._router.navigate(['/home'])));
+              }
+            })
+          });
       });
   }
 
   googleAccount() {
     this._authSrv.googleAccount()
       .then(res => {
-        this.zone.run(() => this._router.navigate(['/home']));
+        // this.zone.run(() => this._router.navigate(['/home']));
+        const emailUserSesion = res.user.email;
+        this._getUpdRem.getUser()
+          .then(user => {
+            const lengthUsers = (Object["values"](user).length) - 1;
+            Object["values"](user).map((x, i) => {
+              if (x.email === emailUserSesion) {
+                this.userInDB = true;
+              }
+              if (i === lengthUsers && this.userInDB) {
+                this.zone.run(() => this._router.navigate(['/home']));
+              }
+              else if (i === lengthUsers && !this.userInDB) {
+                this._registerService
+                  .writeUserData(res.user, res.user.displayName)
+                  .then(() => this.zone.run(() => this._router.navigate(['/home'])));
+              }
+            })
+          });
       });
   }
 

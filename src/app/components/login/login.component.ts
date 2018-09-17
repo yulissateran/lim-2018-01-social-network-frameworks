@@ -1,6 +1,8 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { RegisterService } from '../../services/register/register.service';
+import { GetupdremService } from '../../services/getupdrem/getupdrem.service';
 
 @Component({
   selector: 'app-login',
@@ -15,11 +17,14 @@ export class LoginComponent implements OnInit {
   public messageWrong: string;
   public invalidEmail: boolean;
   public invalidPass: boolean;
+  public userInDB: boolean;
 
   constructor(
     public _authService: AuthService,
     public _router: Router,
-    public zone: NgZone
+    public zone: NgZone,
+    public _registerService: RegisterService,
+    public _getUpdRem: GetupdremService
   ) { }
 
   ngOnInit() {
@@ -39,14 +44,50 @@ export class LoginComponent implements OnInit {
   facebookAccount() {
     this._authService.facebookAccount()
       .then(res => {
-        this.zone.run(() => this._router.navigate(['/home']));
+        // this.zone.run(() => this._router.navigate(['/home']));
+        const emailUserSesion = res.user.email;
+        this._getUpdRem.getUser()
+          .then(user => {
+            const lengthUsers = (Object["values"](user).length) - 1;
+            Object["values"](user).map((x, i) => {
+              if (x.email === emailUserSesion) {
+                this.userInDB = true;
+              }
+              if (i === lengthUsers && this.userInDB) {
+                this.zone.run(() => this._router.navigate(['/home']));
+              }
+              else if (i === lengthUsers && !this.userInDB) {
+                this._registerService
+                  .writeUserData(res.user, res.user.displayName)
+                  .then(() => this.zone.run(() => this._router.navigate(['/home'])));
+              }
+            })
+          });
       });
   }
 
   googleAccount() {
     this._authService.googleAccount()
       .then(res => {
-        this.zone.run(() => this._router.navigate(['/home']));
+        // this.zone.run(() => this._router.navigate(['/home']));
+        const emailUserSesion = res.user.email;
+        this._getUpdRem.getUser()
+          .then(user => {
+            const lengthUsers = (Object["values"](user).length) - 1;
+            Object["values"](user).map((x, i) => {
+              if (x.email === emailUserSesion) {
+                this.userInDB = true;
+              }
+              if (i === lengthUsers && this.userInDB) {
+                this.zone.run(() => this._router.navigate(['/home']));
+              }
+              else if (i === lengthUsers && !this.userInDB) {
+                this._registerService
+                  .writeUserData(res.user, res.user.displayName)
+                  .then(() => this.zone.run(() => this._router.navigate(['/home'])));
+              }
+            })
+          });
       });
   }
 
