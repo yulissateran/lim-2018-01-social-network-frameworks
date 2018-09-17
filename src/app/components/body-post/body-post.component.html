@@ -18,7 +18,7 @@
         <button type="button" class="btn  spaces-horizontal" id="post" (click)="addLike(post)">
           <span class="glyphicon glyphicon-star" aria-hidden="true">Like</span>
         </button>
-        <span>{{posts[post].likesCount}}</span>
+        <span>{{posts[post].likesCount}}</span> 
       </div>
       <div *ngIf="firebase.auth().currentUser.uid === posts[post].authorId">
         <button type="button" class="btn btn-default spaces-horizontal" *ngIf="canEdit === false || actualPost !== post">
