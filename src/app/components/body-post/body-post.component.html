@@ -2,10 +2,14 @@
   <div *ngIf="posts[post].privacity === 'Publico' || currentUserId === posts[post].authorId" class="card  px-0 shadow-sm  mb-5 bg-white rounded spaces-vertical">
     <div class="d-flex row justify-content-start">
       <div class="col-2 align-items-center "><img src="{{posts[post].authorPhoto}}" class="rounded-circle profilepicture"></div>
-      <div class="col-10"><h5 class="p-3 card-title">{{posts[post].authorName}}</h5></div>
+      <div class="col-10">
+        <h5 class="p-3 card-title">{{posts[post].authorName}}</h5>
+      </div>
     </div>
     <div class="card-body px-3" *ngIf="canEdit === false || actualPost !== post">{{posts[post].description}}
-      <div><img *ngIf="posts[post].img" src="{{posts[post].img}}" height="100px" width="100px"></div>
+      <div>
+        <img *ngIf="posts[post].img" class="rounded description-photo" src="{{posts[post].img}}">
+      </div>
     </div>
     <div class="card-body px-3" *ngIf="canEdit === true && actualPost === post">
       <textarea cols="50" rows="4" [(ngModel)]="textEdit">{{posts[post].description}}</textarea>

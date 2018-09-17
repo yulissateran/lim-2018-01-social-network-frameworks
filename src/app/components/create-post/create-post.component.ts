@@ -30,6 +30,7 @@ export class CreatePostComponent implements OnInit {
         .writePostData(this.description, this.privacity, this.currentImgSrc)
         .then(() => {
           this.description = '';
+          this.currentImgSrc = null;
         });
     }
     else console.log('noescribiste nada')

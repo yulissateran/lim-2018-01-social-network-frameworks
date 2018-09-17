@@ -1,9 +1,10 @@
-
 <div class="card">
   <div class="card-body  px-0 pb-0">
     <div>
       <textarea [(ngModel)]="description" name="" id="" cols="50" rows="4" placeholder="¿Qué tienes en mente?"></textarea>
-       <img *ngIf="currentImg" src="{{currentImgSrc}}" height="150px" width="180px" >
+      <div>
+        <img *ngIf="currentImg" src="{{currentImgSrc}}" class="rounded description-photo">
+      </div>
     </div>
     <div class="py-1 col-12 d-flex bd-highlight mb-2 align-items-center border-top">
       <div class="section-logo mr-auto p-2 bd-highlight">
