@@ -1,5 +1,5 @@
 <div *ngFor="let post of Arrayposts">
-  <div *ngIf="posts[post].privacity === 'Publico' || firebase.auth().currentUser.uid === posts[post].authorId" class="card  px-0 shadow-sm  mb-5 bg-white rounded spaces-vertical">
+  <div *ngIf="posts[post].privacity === 'Publico' || currentUserId === posts[post].authorId" class="card  px-0 shadow-sm  mb-5 bg-white rounded spaces-vertical">
     <h5 class="p-3 card-title">{{posts[post].authorName}}</h5>
     <div class="card-body px-3" *ngIf="canEdit === false || actualPost !== post">{{posts[post].description}}
       <div><img *ngIf="posts[post].img" src="{{posts[post].img}}" height="100px" width="100px"></div>
@@ -20,7 +20,7 @@
         </button>
         <span>{{posts[post].likesCount}}</span>
       </div>
-      <div *ngIf="firebase.auth().currentUser.uid === posts[post].authorId">
+      <div *ngIf="currentUserId === posts[post].authorId">
         <button type="button" class="btn btn-default spaces-horizontal" *ngIf="canEdit === false || actualPost !== post">
           <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="editPost(post)">Editar</span>
         </button>

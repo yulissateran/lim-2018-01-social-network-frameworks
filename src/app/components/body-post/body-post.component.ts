@@ -16,6 +16,7 @@ export class BodyPostComponent implements OnInit {
   public canEdit: boolean = false;
   public textEdit: string;
   public actualPost: string;
+  public currentUserId: any;
   Arrayposts: any;
   posts: any;
 
@@ -25,7 +26,7 @@ export class BodyPostComponent implements OnInit {
       .ref()
       .child('posts')
       .on('value', (snap) => {
-        // const currentUserId = firebase.auth().currentUser.uid;
+        this.currentUserId = firebase.auth().currentUser.uid;
         this.posts = snap.val();
         this.Arrayposts = Object.keys(snap.val());
         // console.log(this.posts[post].privacity === Publico || firebase.auth().currentUser.uid === posts[post].authorId)
