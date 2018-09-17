@@ -25,11 +25,14 @@ export class CreatePostComponent implements OnInit {
   }
 
   createPost() {
-    this._registerSrv
-      .writePostData(this.description, this.privacity, this.currentImgSrc)
-      .then(() => {
-        this.description = '';
-      });
+    if (this.description !== undefined && this.description.length > 0) {
+      this._registerSrv
+        .writePostData(this.description, this.privacity, this.currentImgSrc)
+        .then(() => {
+          this.description = '';
+        });
+    }
+    else console.log('noescribiste nada')
   }
 
   addImg(event) {

@@ -38,7 +38,7 @@ export class RegisterService {
           .ref('posts')
           .push()
           .set({
-            img: img,
+            img: img || null,
             description: description,
             privacity: privacity,
             date: this.date,
