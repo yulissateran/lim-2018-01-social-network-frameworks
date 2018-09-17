@@ -11,6 +11,11 @@
   color: white;
 }
 
+.profilepicture {
+  width: 65px;
+  height: auto;
+}
+
 textarea {
   /* border: none; */
   width: 100%;
