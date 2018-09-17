@@ -23,8 +23,8 @@ export class BodyPostComponent implements OnInit {
   ngOnInit() {
     firebase
       .database()
-      .ref()
-      .child('posts')
+      .ref('posts')
+      .orderByChild('date')
       .on('value', (snap) => {
         this.currentUserId = firebase.auth().currentUser.uid;
         this.posts = snap.val();

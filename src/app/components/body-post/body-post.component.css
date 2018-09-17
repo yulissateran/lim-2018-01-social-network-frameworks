@@ -1,21 +1,26 @@
 .spaces-vertical {
   margin: 20px 0;
 }
+
 .spaces-horizontal {
   margin: 0 20px;
 }
+
 .colornotlike {
   background-color: #2b485d;
   color: white;
 }
+
 .profilepicture {
   width: 65px;
   height: auto;
 }
+
 .description-photo {
   width: 100%;
   height: auto;
 }
+
 textarea {
   /* border: none; */
   width: 100%;
