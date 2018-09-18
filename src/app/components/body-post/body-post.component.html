@@ -14,25 +14,24 @@
     <div class="card-body px-3" *ngIf="canEdit === true && actualPost === post">
       <textarea cols="50" rows="4" [(ngModel)]="textEdit">{{posts[post].description}}</textarea>
       <button type="button" class="btn btn-default spaces-horizontal">
-        <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="saveEditPost(post)">Guardar</span>
+        <span aria-hidden="true" (click)="saveEditPost(post)">Guardar</span>
       </button>
       <button type="button" class="btn btn-default spaces-horizontal">
-        <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="cancelEditPost()">Cancelar</span>
+        <span aria-hidden="true" (click)="cancelEditPost()">Cancelar</span>
       </button>
     </div>
     <div class="border-top text-muted py-2 d-flex justify-content-between">
       <div>
-        <button type="button" class="btn  spaces-horizontal" id="post" (click)="addLike(post)">
-          <span class="glyphicon glyphicon-star" aria-hidden="true">Like</span>
-        </button>
+        <a class="spaces-horizontal pointer" id="post" (click)="addLike(post)"><img src="https://image.ibb.co/n2rwpz/like.png" height="30px" width="30px" alt="como"
+            border="0"></a>
         <span>{{posts[post].likesCount}}</span>
       </div>
       <div *ngIf="currentUserId === posts[post].authorId">
         <button type="button" class="btn btn-default spaces-horizontal" *ngIf="canEdit === false || actualPost !== post">
-          <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="editPost(post)">Editar</span>
+          <span aria-hidden="true" (click)="editPost(post)">Editar</span>
         </button>
         <button type="button" class="btn btn-default spaces-horizontal" *ngIf="canEdit === false || actualPost !== post">
-          <span class="glyphicon glyphicon-star" aria-hidden="true" (click)="removePost(post)">Eliminar</span>
+          <span aria-hidden="true" (click)="removePost(post)">Eliminar</span>
         </button>
       </div>
     </div>

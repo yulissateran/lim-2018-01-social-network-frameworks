@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
   facebookAccount() {
     this._authService.facebookAccount()
       .then(res => {
-        // this.zone.run(() => this._router.navigate(['/home']));
         const emailUserSesion = res.user.email;
         this._getUpdRem.getUser()
           .then(user => {
@@ -68,7 +67,6 @@ export class LoginComponent implements OnInit {
   googleAccount() {
     this._authService.googleAccount()
       .then(res => {
-        // this.zone.run(() => this._router.navigate(['/home']));
         const emailUserSesion = res.user.email;
         this._getUpdRem.getUser()
           .then(user => {

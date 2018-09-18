@@ -70,7 +70,6 @@ export class SignupComponent implements OnInit {
   googleAccount() {
     this._authSrv.googleAccount()
       .then(res => {
-        // this.zone.run(() => this._router.navigate(['/home']));
         const emailUserSesion = res.user.email;
         this._getUpdRem.getUser()
           .then(user => {

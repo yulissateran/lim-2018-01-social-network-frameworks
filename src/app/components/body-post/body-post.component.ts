@@ -29,7 +29,6 @@ export class BodyPostComponent implements OnInit {
         this.currentUserId = firebase.auth().currentUser.uid;
         this.posts = snap.val();
         this.Arrayposts = Object.keys(snap.val()).reverse();
-        // console.log(this.posts[post].privacity === Publico || firebase.auth().currentUser.uid === posts[post].authorId)
       });
   }
 
