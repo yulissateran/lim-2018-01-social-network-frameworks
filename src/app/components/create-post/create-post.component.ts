@@ -10,10 +10,10 @@ export class CreatePostComponent implements OnInit {
 
   public description: string;
   public privacity: string;
+  public items = [];
   public defaultPrivacity: any;
   public currentImg: FileList;
   public currentImgSrc: any;
-  public items = [];
 
   constructor(
     public _registerSrv: RegisterService
@@ -32,9 +32,8 @@ export class CreatePostComponent implements OnInit {
           this.description = '';
           this.currentImgSrc = null;
         });
-    } else {
-      console.log('no escribiste nada');
     }
+    else console.log('no escribiste nada')
   }
 
   addImg(event) {
