@@ -25,7 +25,7 @@ export class CreatePostComponent implements OnInit {
   }
 
   createPost() {
-    if (this.description !== undefined && this.description.length > 0) {
+    if ((this.description !== undefined && this.description.length > 0 )|| this.currentImgSrc ) {
       this._registerSrv
         .writePostData(this.description, this.privacity, this.currentImgSrc)
         .then(() => {

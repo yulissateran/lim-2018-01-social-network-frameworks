@@ -39,7 +39,7 @@ export class RegisterService {
           .push()
           .set({
             img: img || null,
-            description: description,
+            description: description || '',
             privacity: privacity,
             date: this.date,
             authorName: snapshot.val().username,
