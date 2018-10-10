@@ -26,7 +26,11 @@
     </div>
     <div class="border-top text-muted py-2 d-flex justify-content-between">
       <div>
-        <button type="button" class="mx-3  btn btn-outline-secondary  primary-text  px-3" id="post" (click)="addLike(post)" ><i class="fas fa-heart"></i>
+        <!-- <label for="like">
+          <img src="https://image.ibb.co/n2rwpz/like.png" height="30px" width="30px" alt="como">
+        </label> -->
+        <button type="button" class="mx-3  btn bg-transparent px-3" id="like" (click)="addLike(post)" >
+            <img src="https://image.ibb.co/n2rwpz/like.png" height="30px" width="30px" alt="como">
         </button>
         <span>{{posts[post].likesCount}}</span> 
       </div>

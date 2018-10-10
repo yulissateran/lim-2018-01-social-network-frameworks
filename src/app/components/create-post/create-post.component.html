@@ -14,7 +14,10 @@
         </select>       
       </div>
       <div>
-        <label for="photo" ><img src="https://image.flaticon.com/icons/svg/138/138570.svg" class="mx-3"  height="50px" width="50px" alt="alt"></label>
+        <label for="photo" height="30px" width="30px">
+            <img src="https://image.ibb.co/j8MkhK/camara_de_fotos.png" class="mx-3" height="40px"
+            width="40px" alt="alt">
+        </label>
         <input id="photo" type="file" class="d-none" (change)="addImg($event)">
         <button type="button" class="btn sky-color" (click)="createPost()">Publicar</button>
       </div>

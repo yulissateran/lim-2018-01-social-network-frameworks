@@ -33,7 +33,7 @@ export class CreatePostComponent implements OnInit {
           this.currentImgSrc = null;
         });
     }
-    else console.log('no escribiste nada')
+    else alert('Ingresa texto para publicar! 😉')
   }
 
   addImg(event) {
