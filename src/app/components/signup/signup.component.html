@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 p-0 d-none d-md-block container-hero" >
+      <div class="row">
+        <img class="  height-full" src="https://scontent.flim6-1.fna.fbcdn.net/v/t1.15752-9/70626087_735812663527449_5202049137486331904_n.png?_nc_cat=100&_nc_eui2=AeEZvTtr4ecSeVluSx2G-osQcXyvVRUIWLo-viKTYOVL49YGzE1RGCzHpcdrJfkNo50uxFqDaUH4GheYG4C1lrRfAEqrxOx51yg4IDfxyfsfmQ&_nc_oc=AQnCcwHW_IAHUpiY4nA8gKNlTLDEaAdxFCYbAfR_QrhBm7YsISAwSO8ITl5sgxF1oJ0&_nc_ht=scontent.flim6-1.fna&oh=a2ac0a56618f88f2e4f5947ff68a0a18&oe=5E0D96F0"
+          alt="init">
+      </div>
+    </div>
+    <div class="col-12 col-md-6 main-color">
+      <div class=" row d-flex align-items-center justify-content-center height-full">
+        <div class="col-11 col-sm-6 col-md-6 my-auto">
+          <div class="row ">
+            <img src="https://scontent.flim6-1.fna.fbcdn.net/v/t1.15752-9/71140910_667699237083464_6723052444621733888_n.png?_nc_cat=103&_nc_eui2=AeG_aao1m7HwQ8QvD_08PqDIZgnZMIds242luMBimoyElZk5njvKgKjkOTEP8yJwN87G4Rf0QYVrfwPbwEjXlXuVS_6scp8JHSISGCivgxwhYg&_nc_oc=AQnEFfjYGCwvHViNCLORaPlM1N4KeBKo3Zv6pbfTUHVuPgWHmDqj6wQ1dWjX-EY95PI&_nc_ht=scontent.flim6-1.fna&oh=e0c0e0568596fc53dc67ecfffa832da8&oe=5E0AF63C"
+              alt="logo" class="mx-auto">
+          </div>
+          <form class="">
+            <div class="row d-flex justify-content-center mb-2">
+              <div class="col-12 text-center">
+                  <span class="text-center">Regístrate para ver las novedades tecnológicas que comparten tus amigos</span>
+              </div>
+            </div>
+            <div class="row d-flex justify-content-center ">
+              <div class="col-12 mb-3">
+                <button id="btn-facebook" class="btn main-btn btn-block py-2 text-white" (click)="facebookAccount()">
+                  <i class="fab fa-facebook-f mr-2"></i>
+                  <span>Iniciar con Facebook</span>
+                </button>
+              </div>
+              <div class="col-12 mb-3">
+                <button id="btn-google" class="btn main-btn btn-block py-2 text-white" (click)="googleAccount()">
+                  <i class="fab fa-google mr-2"></i>
+                  <span>Iniciar con Google</span>
+
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1"><small class="font-weight-bold">Nombre</small></label>
+              <input type="text" class="bakground-input" name="name" [(ngModel)]="name" aria-describedby="emailHelp" placeholder="Ingresa tu nombre">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1"><small class="font-weight-bold">Correo Electrónico</small></label>
+              <input type="email" class="bakground-input" name="email" [(ngModel)]="email" aria-describedby="emailHelp" placeholder="Ingresa tu correo electrónico">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1"><small class="font-weight-bold">Contraseña</small></label>
+              <input type="password" class="bakground-input" name="password" [(ngModel)]="password" placeholder="Ingresa tu contraseña">
+            </div>
+            <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" *ngIf="wrongForm === true">
+              {{messageWrong}}
+            </div>
+            <div class="row d-flex justify-content-center">
+              <div class="col-12 ">
+                  <button type="button" class="btn  main-btn btn-block text-white" (click)="validateForm()">Regístrate</button>
+              </div>
+            </div>
+            <div class="row">
+              <p class="mx-auto ">Tienes una cuenta? <a href="" routerLink="/login">Inicia Sesión</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

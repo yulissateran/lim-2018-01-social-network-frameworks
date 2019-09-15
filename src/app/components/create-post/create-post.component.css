@@ -1,0 +1,16 @@
+textarea {
+  border: none;
+  width: 100%;
+  resize: none;
+  padding: 15px;
+  font-size: 16px;
+  outline: none;
+}
+.description-photo {
+  width: 100%;
+  height: auto;
+}
+.sky-color {
+  background-color: #2b485d;
+  color: white;
+}
